@@ -1,0 +1,21 @@
+jogador = dict()
+gols = list()
+jogador['nome'] = str(input('Nome do Jogador: ').capitalize().strip())
+partida = int(input(f'Quantas partidas {jogador["nome"]}? '))
+for c in range(0, partida):
+    gols.append(int(input(f'Quantos gols na partida {c + 1}: ')))
+jogador['gols'] = gols.copy()
+jogador['total'] = sum(gols)
+print('-=' * 20)
+print(jogador)
+print('-=' * 20)
+print(f'Jogador: \033[33m{jogador["nome"]}\033[m')
+print()
+for k, v in jogador.items():
+    print(f'{k} = {v}')
+print()
+print('-=' * 20)
+print(f'O jogador {jogador["nome"]} jogou {partida} partida.')
+for p, i in enumerate(jogador['gols']):
+    print(f'   => Na partida {p + 1} ele marcou {i} gols.')
+print(f'Um total de {jogador["total"]} gols')
